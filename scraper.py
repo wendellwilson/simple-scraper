@@ -1,0 +1,102 @@
+import requests
+
+filename = 'data.html'
+path = './'
+
+headers = {
+    'sec-ch-ua':'"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
+    'sec-ch-ua-mobile':'?0',
+    'sec-ch-ua-platform':'"Windows"',
+    'Upgrade-Insecure-Requests':'1',
+    'Content-Type':'application/x-www-form-urlencoded',
+    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
+    'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+    'host':'www.tceq.texas.gov'
+}
+
+data = {
+    'include43202':1,
+    'include43203':1,
+    'include43204':1,
+    'include43205':1,
+    'include43206':1,
+    'include43212':1,
+    'include43214':1,
+    'include43216':1,
+    'include43217':1,
+    'include43218':1,
+    'include43220':1,
+    'include43221':1,
+    'include43224':1,
+    'include43226':1,
+    'include43227':1,
+    'include43228':1,
+    'include43230':1,
+    'include43231':1,
+    'include43232':1,
+    'include43233':1,
+    'include43234':1,
+    'include43235':1,
+    'include43238':1,
+    'include43242':1,
+    'include43243':1,
+    'include43244':1,
+    'include43245':1,
+    'include43246':1,
+    'include43247':1,
+    'include43248':1,
+    'include43249':1,
+    'include43250':1,
+    'include43252':1,
+    'include43253':1,
+    'include43256':1,
+    'include43257':1,
+    'include43261':1,
+    'include43262':1,
+    'include43263':1,
+    'include43270':1,
+    'include43280':1,
+    'include43282':1,
+    'include43283':1,
+    'include43284':1,
+    'include43285':1,
+    'include43289':1,
+    'include43290':1,
+    'include43291':1,
+    'include43342':1,
+    'include43954':1,
+    'include43960':1,
+    'include45109':1,
+    'include45201':1,
+    'include45202':1,
+    'include45203':1,
+    'include45204':1,
+    'include45207':1,
+    'include45208':1,
+    'include45209':1,
+    'include45210':1,
+    'include45211':1,
+    'include45212':1,
+    'include45213':1,
+    'include45218':1,
+    'include45219':1,
+    'include45220':1,
+    'include45225':1,
+    'include61101':1,
+    'include61103':1,
+    'include61104':1,
+    'report_format':'comma',
+    'select_date':'user',
+    'user_day':5,
+    'user_month':6,
+    'user_site':'48_201_0026',
+    'user_units':'ppb-v',
+    'user_year':2023
+}
+
+response = requests.post('https://www.tceq.texas.gov/cgi-bin/compliance/monops/agc_daily_summary.pl', data = data, headers = headers)
+
+result_data = response.content
+
+with open(filename, 'wb') as s:
+    s.write(result_data)
